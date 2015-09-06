@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info>
+  <concept fqn="jetbrains.mps.baseLanguage.structure.BlockStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ForeachStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.StaticMethodDeclaration" />
+  <root>
+    <file name="BehaviorAspectDescriptor.java">
+      <unit at="9,0,36,0" name="IL.behavior.BehaviorAspectDescriptor" />
+    </file>
+    <file name="BusinessConcept_BehaviorDescriptor.java">
+      <unit at="6,0,14,0" name="IL.behavior.BusinessConcept_BehaviorDescriptor" />
+    </file>
+    <file name="BusinessFact_BehaviorDescriptor.java">
+      <unit at="6,0,14,0" name="IL.behavior.BusinessFact_BehaviorDescriptor" />
+    </file>
+    <file name="BusinessTerm_BehaviorDescriptor.java">
+      <unit at="10,0,21,0" name="IL.behavior.BusinessTerm_BehaviorDescriptor" />
+    </file>
+    <file name="Characteristic_BehaviorDescriptor.java">
+      <unit at="6,0,14,0" name="IL.behavior.Characteristic_BehaviorDescriptor" />
+    </file>
+    <file name="Concept_BehaviorDescriptor.java">
+      <unit at="10,0,21,0" name="IL.behavior.Concept_BehaviorDescriptor" />
+    </file>
+    <file name="PreferredTerm_BehaviorDescriptor.java">
+      <unit at="6,0,14,0" name="IL.behavior.PreferredTerm_BehaviorDescriptor" />
+    </file>
+    <file name="Relation_BehaviorDescriptor.java">
+      <unit at="6,0,14,0" name="IL.behavior.Relation_BehaviorDescriptor" />
+    </file>
+    <file name="Specification_BehaviorDescriptor.java">
+      <unit at="10,0,21,0" name="IL.behavior.Specification_BehaviorDescriptor" />
+    </file>
+    <file name="Statement_BehaviorDescriptor.java">
+      <unit at="7,0,15,0" name="IL.behavior.Statement_BehaviorDescriptor" />
+    </file>
+    <file name="Synonym_BehaviorDescriptor.java">
+      <unit at="6,0,14,0" name="IL.behavior.Synonym_BehaviorDescriptor" />
+    </file>
+    <file name="Word_BehaviorDescriptor.java">
+      <unit at="6,0,14,0" name="IL.behavior.Word_BehaviorDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:5095f78b-f1a3-4e81-9260-e220d8039fb7(IL.behavior)/2800999402945520186">
+    <file name="Statement_Behavior.java">
+      <node id="2800999402945591479" at="15,83,16,28" concept="4" />
+      <node id="2800999402945617652" at="17,217,18,30" concept="4" />
+      <node id="4995452815074945552" at="19,7,20,211" concept="4" />
+      <node id="2800999402945593444" at="21,186,22,223" concept="1" />
+      <node id="4995452815075069336" at="24,7,25,30" concept="4" />
+      <node id="4995452815075066098" at="26,7,27,205" concept="4" />
+      <node id="4995452815076031441" at="28,186,29,187" concept="1" />
+      <node id="2800999402945608110" at="32,5,33,16" concept="5" />
+      <node id="2800999402945520186" at="13,0,15,0" concept="6" trace="init#(Lorg/jetbrains/mps/openapi/model/SNode;)V" />
+      <node id="4995452815074945552" at="20,211,23,9" concept="3" />
+      <node id="4995452815075066098" at="27,205,30,9" concept="3" />
+      <node id="4995452815074945552" at="18,30,24,7" concept="0" />
+      <node id="4995452815075066098" at="25,30,31,7" concept="0" />
+      <node id="2800999402945615441" at="16,28,32,5" concept="2" />
+      <node id="2800999402945520186" at="15,0,35,0" concept="6" trace="call_GetTerms_2800999402945520684#(Lorg/jetbrains/mps/openapi/model/SNode;)Ljava/lang/Iterable;" />
+      <scope id="2800999402945520188" at="13,43,13,43" />
+      <scope id="4995452815074945559" at="21,186,22,223" />
+      <scope id="4995452815075066101" at="28,186,29,187" />
+      <scope id="2800999402945520186" at="13,0,15,0">
+        <var name="thisNode" id="2800999402945520186" />
+      </scope>
+      <scope id="4995452815074945552" at="19,7,23,9">
+        <var name="businessConcept" id="4995452815074945552" />
+      </scope>
+      <scope id="4995452815075066098" at="26,7,30,9">
+        <var name="businessConcept" id="4995452815075066098" />
+      </scope>
+      <scope id="2800999402945615445" at="17,217,31,7">
+        <var name="bt" id="2800999402945617653" />
+        <var name="sy" id="4995452815075069337" />
+      </scope>
+      <scope id="2800999402945615441" at="16,28,32,5">
+        <var name="term" id="2800999402945615443" />
+      </scope>
+      <scope id="2800999402945520687" at="15,83,33,16">
+        <var name="list" id="2800999402945591475" />
+      </scope>
+      <scope id="2800999402945520186" at="15,0,35,0">
+        <var name="thisNode" id="2800999402945520186" />
+      </scope>
+      <unit id="2800999402945520186" at="12,0,36,0" name="IL.behavior.Statement_Behavior" />
+    </file>
+  </root>
+</debug-info>
+
