@@ -151,7 +151,29 @@
         </node>
       </node>
     </node>
-    <node concept="3V1_7r" id="4ljqtT6FvOb" role="3V3Pd7" />
+    <node concept="3V1_7r" id="4ljqtT6FvOb" role="3V3Pd7">
+      <node concept="3Ne0q" id="1gAd3UCm7Uv" role="3V1_7A">
+        <property role="TrG5h" value="De" />
+      </node>
+      <node concept="3V1YSB" id="1gAd3UCm7U$" role="3V1_7A">
+        <property role="TrG5h" value="Persoon" />
+        <ref role="3V1YS$" node="2bVyCrq2upw" resolve="Persoon" />
+      </node>
+      <node concept="3V1YSq" id="1gAd3UCm7UG" role="3V1_7A">
+        <property role="TrG5h" value="is geboren" />
+        <node concept="3V3PJ4" id="1gAd3UCm7UO" role="3V1YSr">
+          <property role="TrG5h" value="Geboren" />
+        </node>
+      </node>
+      <node concept="3Ne0q" id="1gAd3UCm7UX" role="3V1_7A">
+        <property role="TrG5h" value="op" />
+      </node>
+      <node concept="3V1YSq" id="1gAd3UCm7Vb" role="3V1_7A">
+        <property role="TrG5h" value="Geboortedatum" />
+        <node concept="3V3PIS" id="1gAd3UCm7Vm" role="3V1YSr" />
+      </node>
+    </node>
+    <node concept="3V1_7r" id="1gAd3UCm7TR" role="3V3Pd7" />
   </node>
 </model>
 

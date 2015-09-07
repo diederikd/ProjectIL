@@ -14,19 +14,6 @@ import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.EditorManager;
-import com.mbeddr.mpsutil.editor.querylist.runtime.QueryListHandler;
-import com.mbeddr.mpsutil.editor.querylist.runtime.EditorCell_QueryList;
-import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
-import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
-import jetbrains.mps.openapi.editor.cells.CellActionType;
-import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
-import jetbrains.mps.internal.collections.runtime.Sequence;
-import java.util.Collections;
-import jetbrains.mps.openapi.editor.cells.SubstituteInfo;
-import com.mbeddr.mpsutil.editor.querylist.runtime.SubstituteInfoFactory;
-import org.jetbrains.annotations.NotNull;
-import jetbrains.mps.baseLanguage.closures.runtime._FunctionTypes;
-import jetbrains.mps.util.Computable;
 import jetbrains.mps.nodeEditor.cells.EditorCell_Property;
 import jetbrains.mps.nodeEditor.cells.ModelAccessor;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
@@ -35,6 +22,7 @@ import jetbrains.mps.internal.collections.runtime.ListSequence;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SPropertyOperations;
 import jetbrains.mps.util.EqualUtil;
+import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
 
 public class Relation_Editor extends DefaultNodeEditor {
@@ -50,8 +38,7 @@ public class Relation_Editor extends DefaultNodeEditor {
     editorCell.addEditorCell(this.createProperty_4myft4_c0(editorContext, node));
     editorCell.addEditorCell(this.createConstant_4myft4_d0(editorContext, node));
     editorCell.addEditorCell(this.createConstant_4myft4_e0(editorContext, node));
-    editorCell.addEditorCell(this.createQueryList_4myft4_f0(editorContext, node));
-    editorCell.addEditorCell(this.createReadOnlyModelAccessor_4myft4_g0(editorContext, node));
+    editorCell.addEditorCell(this.createReadOnlyModelAccessor_4myft4_f0(editorContext, node));
     return editorCell;
   }
   private EditorCell createConstant_4myft4_a0(EditorContext editorContext, SNode node) {
@@ -101,93 +88,7 @@ public class Relation_Editor extends DefaultNodeEditor {
     editorCell.setDefaultText("");
     return editorCell;
   }
-  private EditorCell createQueryList_4myft4_f0(final EditorContext editorContext, final SNode node) {
-    QueryListHandler handler = new Relation_Editor.QueryListHandler_4myft4_f0(editorContext, node);
-
-    EditorCell_QueryList editorCell = handler.createCells(editorContext, new CellLayout_Vertical());
-    editorCell.setCellId("QueryList_4myft4_f0");
-    Style style = new StyleImpl();
-    style.set(StyleAttributes.READ_ONLY, 0, true);
-    editorCell.getStyle().putAll(style);
-    editorCell.setGridLayout(true);
-    return editorCell;
-  }
-  private static class QueryListHandler_4myft4_f0 extends QueryListHandler {
-    public QueryListHandler_4myft4_f0(EditorContext context, SNode ownerNode) {
-      super(context, ownerNode);
-    }
-    public EditorCell createNodeCell(EditorContext editorContext, SNode elementNode) {
-      EditorCell elementCell = super.createNodeCell(editorContext, elementNode);
-      this.installElementCellActions(this.getOwner(), elementNode, elementCell, editorContext);
-      return elementCell;
-    }
-    @Override
-    public EditorCell createEmptyCell(EditorContext editorContext) {
-      EditorCell emptyCell = null;
-      emptyCell = super.createEmptyCell(editorContext);
-      this.installElementCellActions(super.getOwner(), null, emptyCell, editorContext);
-      return postProcessEmptyCell(emptyCell);
-    }
-    public void installElementCellActions(SNode listOwner, SNode elementNode, EditorCell elementCell, EditorContext editorContext) {
-      if (elementCell.getUserObject(AbstractCellListHandler.ELEMENT_CELL_ACTIONS_SET) == null) {
-        elementCell.putUserObject(AbstractCellListHandler.ELEMENT_CELL_ACTIONS_SET, AbstractCellListHandler.ELEMENT_CELL_ACTIONS_SET);
-        if (elementNode != null) {
-
-          elementCell.setAction(CellActionType.DELETE, new CellAction_DeleteNode(elementNode));
-
-
-        }
-        if (elementCell.getSubstituteInfo() == null) {
-          elementCell.setSubstituteInfo(getSubstituteInfo(elementNode));
-        }
-      }
-    }
-    private Object executeQuery(final SNode node, final EditorContext editorContext) {
-      return Sequence.fromIterable(Collections.<SNode>emptyList());
-    }
-    @Override
-    public Iterable<? extends SNode> getNodesForList(final SNode node) {
-      Object queryResult = executeQuery(node, getEditorContext());
-      if (queryResult instanceof Iterable) {
-        return (Iterable<? extends SNode>) queryResult;
-      } else {
-        return Sequence.<SNode>singleton((SNode) queryResult);
-      }
-    }
-    @Override
-    public SubstituteInfo getSubstituteInfo(final SNode node, final SNode childNode, final SubstituteInfoFactory factory, final EditorContext editorContext) {
-      return factory.forChild(childNode);
-    }
-    @Override
-    public void insertNewNode(final SNode node, final SNode anchorNode, final boolean insertBefore) {
-    }
-    @Override
-    public void deleteNode(final SNode listNode, final SNode nodeToDelete) {
-    }
-    @Override
-    protected EditorCell createNodeCellNotNull(final EditorContext context, @NotNull final SNode node) {
-      EditorCell cell;
-      // <node> 
-      cell = createCellDuplicatesSafe(new _FunctionTypes._return_P0_E0<EditorCell>() {
-        public EditorCell invoke() {
-          return context.getEditorComponent().getUpdater().getCurrentUpdateSession().updateReferencedNodeCell(new Computable<EditorCell>() {
-            public EditorCell compute() {
-              return context.getEditorComponent().getUpdater().getCurrentUpdateSession().updateChildNodeCell(node);
-            }
-          }, node, "querylist2800999402945265105");
-        }
-      });
-      return cell;
-    }
-
-    private jetbrains.mps.openapi.editor.cells.EditorCell_Collection wrapWithCollection(EditorCell cell) {
-      jetbrains.mps.openapi.editor.cells.EditorCell_Collection collection = EditorCell_Collection.createIndent2(myEditorContext, myOwnerNode);
-      collection.addEditorCell(cell);
-      return collection;
-    }
-
-  }
-  private EditorCell createReadOnlyModelAccessor_4myft4_g0(final EditorContext editorContext, final SNode node) {
+  private EditorCell createReadOnlyModelAccessor_4myft4_f0(final EditorContext editorContext, final SNode node) {
     EditorCell_Property editorCell = EditorCell_Property.create(editorContext, new ModelAccessor() {
       public String getText() {
         StringBuilder s = new StringBuilder();
@@ -199,7 +100,7 @@ public class Relation_Editor extends DefaultNodeEditor {
             if (SNodeOperations.isInstanceOf(businessConcept, MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f42182L, "IL.structure.BusinessConcept"))) {
               s.append(SPropertyOperations.getString(SLinkOperations.getTarget(bt, MetaAdapterFactory.getContainmentLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc649cL, 0x22fb8a86d9fc649dL, "preferredTermFor")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
               s.append(" (");
-              s.append(SPropertyOperations.getString(bt, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ")" + ", \n");
+              s.append(SPropertyOperations.getString(bt, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ") ,");
             }
           }
           SNode sy = (SNode) term;
@@ -208,7 +109,7 @@ public class Relation_Editor extends DefaultNodeEditor {
             if (SNodeOperations.isInstanceOf(businessConcept, MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f42182L, "IL.structure.BusinessConcept"))) {
               s.append(SPropertyOperations.getString(SLinkOperations.getTarget(sy, MetaAdapterFactory.getReferenceLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc64a1L, 0x22fb8a86d9fc64a2L, "isSynonymFor")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
               s.append(" (");
-              s.append(SPropertyOperations.getString(sy, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ")" + "\n");
+              s.append(SPropertyOperations.getString(sy, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ") ,");
             }
           }
 
@@ -223,7 +124,7 @@ public class Relation_Editor extends DefaultNodeEditor {
     }, node);
     editorCell.setAction(CellActionType.DELETE, EmptyCellAction.getInstance());
     editorCell.setAction(CellActionType.BACKSPACE, EmptyCellAction.getInstance());
-    editorCell.setCellId("ReadOnlyModelAccessor_4myft4_g0");
+    editorCell.setCellId("ReadOnlyModelAccessor_4myft4_f0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_ON_NEW_LINE, 0, true);
     style.set(StyleAttributes.INDENT_LAYOUT_CHILDREN_NEWLINE, 0, true);
