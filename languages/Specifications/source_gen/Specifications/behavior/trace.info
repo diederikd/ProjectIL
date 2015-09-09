@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debug-info>
+  <root>
+    <file name="BehaviorAspectDescriptor.java">
+      <unit at="9,0,22,0" name="Specifications.behavior.BehaviorAspectDescriptor" />
+    </file>
+    <file name="Specifications_BehaviorDescriptor.java">
+      <unit at="10,0,21,0" name="Specifications.behavior.Specifications_BehaviorDescriptor" />
+    </file>
+  </root>
+</debug-info>
+

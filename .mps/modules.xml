@@ -2,9 +2,11 @@
 <project version="4">
   <component name="MPSProject">
     <projectModules>
+      <modulePath path="$PROJECT_DIR$/languages/Ex/Ex.mpl" folder="" />
       <modulePath path="$PROJECT_DIR$/languages/IL/IL.mpl" folder="" />
       <modulePath path="$PROJECT_DIR$/languages/IL/runtime/IL.runtime.msd" folder="" />
       <modulePath path="$PROJECT_DIR$/languages/IL/sandbox/IL.sandbox.msd" folder="" />
+      <modulePath path="$PROJECT_DIR$/languages/Specifications/Specifications.mpl" folder="" />
     </projectModules>
   </component>
 </project>

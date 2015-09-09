@@ -10,6 +10,7 @@ import jetbrains.mps.generator.runtime.TemplateModule;
 import jetbrains.mps.generator.runtime.TemplateUtil;
 import jetbrains.mps.smodel.runtime.LanguageAspectDescriptor;
 import jetbrains.mps.smodel.runtime.BehaviorAspectDescriptor;
+import jetbrains.mps.smodel.runtime.ConstraintsAspectDescriptor;
 import jetbrains.mps.openapi.editor.descriptor.EditorAspectDescriptor;
 import IL.editor.EditorAspectDescriptorImpl;
 import jetbrains.mps.smodel.runtime.StructureAspectDescriptor;
@@ -43,6 +44,9 @@ public class Language extends LanguageRuntime {
   protected <T extends LanguageAspectDescriptor> T createAspectDescriptor(Class<T> descriptorClass) {
     if (descriptorClass == BehaviorAspectDescriptor.class) {
       return (T) new IL.behavior.BehaviorAspectDescriptor();
+    }
+    if (descriptorClass == ConstraintsAspectDescriptor.class) {
+      return (T) new IL.constraints.ConstraintsAspectDescriptor();
     }
     if (descriptorClass == EditorAspectDescriptor.class) {
       return (T) new EditorAspectDescriptorImpl();

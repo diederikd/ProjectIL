@@ -1,3 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<debug-info />
+<debug-info>
+  <concept fqn="jetbrains.mps.baseLanguage.structure.BlockStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ConstructorDeclaration" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ExpressionStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.IfStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.InstanceMethodDeclaration" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.LocalVariableDeclarationStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.ReturnStatement" />
+  <concept fqn="jetbrains.mps.baseLanguage.structure.SuperConstructorInvocation" />
+  <root>
+    <file name="ConstraintsAspectDescriptor.java">
+      <unit at="10,0,30,0" name="IL.constraints.ConstraintsAspectDescriptor" />
+    </file>
+  </root>
+  <root nodeRef="r:dbe8006e-ccd5-4f0c-95eb-5dbfa9caeaad(IL.constraints)/1451905373591752550">
+    <file name="BusinessConcept_Constraints.java">
+      <node id="1451905373591752550" at="16,40,17,98" concept="7" />
+      <node id="1451905373591752550" at="20,88,21,123" concept="5" />
+      <node id="1451905373591752550" at="24,40,25,20" concept="6" />
+      <node id="1451905373591752550" at="28,70,29,37" concept="5" />
+      <node id="1451905373591753415" at="30,9,31,32" concept="5" />
+      <node id="1451905373591767038" at="32,87,33,107" concept="5" />
+      <node id="1451905373591780154" at="34,59,35,27" concept="2" />
+      <node id="1451905373591783201" at="37,11,38,23" concept="6" />
+      <node id="1451905373591752550" at="41,7,42,22" concept="6" />
+      <node id="1451905373591752550" at="16,0,19,0" concept="1" trace="BusinessConcept_Constraints#()V" />
+      <node id="1451905373591774981" at="33,107,36,13" concept="3" />
+      <node id="1451905373591752550" at="23,0,27,0" concept="4" trace="hasOwnValidator#()Z" />
+      <node id="1451905373591754857" at="31,32,37,11" concept="3" />
+      <node id="1451905373591752550" at="29,37,39,9" concept="0" />
+      <node id="1451905373591752550" at="27,0,41,0" concept="4" trace="validateValue#(Lorg/jetbrains/mps/openapi/model/SNode;Ljava/lang/String;)Z" />
+      <node id="1451905373591752550" at="21,123,41,7" concept="2" />
+      <node id="1451905373591752550" at="19,0,44,0" concept="4" trace="getNotDefaultSProperties#()Ljava/util/Map;" />
+      <scope id="1451905373591752550" at="16,40,17,98" />
+      <scope id="1451905373591752550" at="24,40,25,20" />
+      <scope id="1451905373591774983" at="34,59,35,27" />
+      <scope id="1451905373591752550" at="16,0,19,0" />
+      <scope id="1451905373591752550" at="23,0,27,0" />
+      <scope id="1451905373591754859" at="32,87,36,13">
+        <var name="beginletter" id="1451905373591767041" />
+      </scope>
+      <scope id="1451905373591753100" at="30,9,38,23">
+        <var name="valid" id="1451905373591753418" />
+      </scope>
+      <scope id="1451905373591752550" at="28,70,39,9">
+        <var name="propertyName" id="1451905373591752550" />
+      </scope>
+      <scope id="1451905373591752550" at="27,0,41,0">
+        <var name="node" id="1451905373591752550" />
+        <var name="propertyValue" id="1451905373591752550" />
+      </scope>
+      <scope id="1451905373591752550" at="20,88,42,22">
+        <var name="properties" id="1451905373591752550" />
+      </scope>
+      <scope id="1451905373591752550" at="19,0,44,0" />
+      <unit id="1451905373591752550" at="22,119,41,5" name="IL.constraints.BusinessConcept_Constraints$1" />
+      <unit id="1451905373591752550" at="15,0,45,0" name="IL.constraints.BusinessConcept_Constraints" />
+    </file>
+  </root>
+</debug-info>
 

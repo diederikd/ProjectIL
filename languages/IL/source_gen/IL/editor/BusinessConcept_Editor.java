@@ -12,7 +12,9 @@ import jetbrains.mps.nodeEditor.cellProviders.CellProviderWithRole;
 import jetbrains.mps.lang.editor.cellProviders.PropertyCellProvider;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
+import jetbrains.mps.editor.runtime.style.StyleAttributes;
 import jetbrains.mps.nodeEditor.EditorManager;
+import de.slisson.mps.editor.multiline.cellProviders.MultilineCellProvider;
 
 public class BusinessConcept_Editor extends DefaultNodeEditor {
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
@@ -25,6 +27,9 @@ public class BusinessConcept_Editor extends DefaultNodeEditor {
     editorCell.addEditorCell(this.createConstant_o14cki_a0(editorContext, node));
     editorCell.addEditorCell(this.createConstant_o14cki_b0(editorContext, node));
     editorCell.addEditorCell(this.createProperty_o14cki_c0(editorContext, node));
+    editorCell.addEditorCell(this.createConstant_o14cki_d0(editorContext, node));
+    editorCell.addEditorCell(this.createConstant_o14cki_e0(editorContext, node));
+    editorCell.addEditorCell(this.createMultiline_o14cki_f0(editorContext, node));
     return editorCell;
   }
   private EditorCell createConstant_o14cki_a0(EditorContext editorContext, SNode node) {
@@ -48,6 +53,7 @@ public class BusinessConcept_Editor extends DefaultNodeEditor {
     editorCell.setCellId("property_name");
     Style style = new StyleImpl();
     CoreLanguageStyles_StyleSheet.apply_Concept(style, editorCell);
+    style.set(StyleAttributes.INDENT_LAYOUT_NEW_LINE, 0, true);
     editorCell.getStyle().putAll(style);
     editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
     SNode attributeConcept = provider.getRoleAttribute();
@@ -55,6 +61,33 @@ public class BusinessConcept_Editor extends DefaultNodeEditor {
     if (attributeConcept != null) {
       EditorManager manager = EditorManager.getInstanceFromContext(editorContext);
       return manager.createNodeRoleAttributeCell(editorContext, attributeConcept, attributeKind, editorCell);
+    } else
+    return editorCell;
+  }
+  private EditorCell createConstant_o14cki_d0(EditorContext editorContext, SNode node) {
+    EditorCell_Constant editorCell = new EditorCell_Constant(editorContext, node, "definition");
+    editorCell.setCellId("Constant_o14cki_d0");
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
+  private EditorCell createConstant_o14cki_e0(EditorContext editorContext, SNode node) {
+    EditorCell_Constant editorCell = new EditorCell_Constant(editorContext, node, ":");
+    editorCell.setCellId("Constant_o14cki_e0");
+    editorCell.setDefaultText("");
+    return editorCell;
+  }
+  private EditorCell createMultiline_o14cki_f0(EditorContext editorContext, SNode node) {
+    CellProviderWithRole provider = new MultilineCellProvider(node, editorContext);
+    provider.setRole("definition");
+    provider.setNoTargetText("<no definition>");
+    EditorCell editorCell;
+    editorCell = provider.createEditorCell(editorContext);
+    editorCell.setCellId("property_definition");
+    editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
+    SNode attributeConcept = provider.getRoleAttribute();
+    Class attributeKind = provider.getRoleAttributeClass();
+    if (attributeConcept != null) {
+      return editorContext.getEditorComponent().getUpdater().getCurrentUpdateSession().updateRoleAttributeCell(attributeKind, editorCell, attributeConcept);
     } else
     return editorCell;
   }

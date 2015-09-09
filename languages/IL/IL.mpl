@@ -45,12 +45,17 @@
   <usedLanguages>
     <usedLanguage>c72da2b9-7cce-4447-8389-f407dc1158b7(jetbrains.mps.lang.structure)</usedLanguage>
     <usedLanguage>120e1c9d-4e27-4478-b2af-b2c3bd3850b0(com.mbeddr.mpsutil.editor.querylist)</usedLanguage>
+    <usedLanguage>31c91def-a131-41a1-9018-102874f49a12(de.slisson.mps.editor.multiline)</usedLanguage>
+    <usedLanguage>ec2784b3-4326-4ec8-a86f-d2066ee97ec7(Ex)</usedLanguage>
   </usedLanguages>
   <usedDevKits>
     <usedDevKit>2677cb18-f558-4e33-bc38-a5139cee06dc(jetbrains.mps.devkit.language-design)</usedDevKit>
   </usedDevKits>
   <languageVersions>
+    <language id="ec2784b3-4326-4ec8-a86f-d2066ee97ec7" fqName="Ex" version="0" />
+    <language id="31cb0177-ae9c-4868-afb6-1ac48c69379d" fqName="IL" version="0" />
     <language id="120e1c9d-4e27-4478-b2af-b2c3bd3850b0" fqName="com.mbeddr.mpsutil.editor.querylist" version="0" />
+    <language id="31c91def-a131-41a1-9018-102874f49a12" fqName="de.slisson.mps.editor.multiline" version="0" />
     <language id="f3061a53-9226-4cc5-a443-f952ceaf5816" fqName="jetbrains.mps.baseLanguage" version="1" />
     <language id="ed6d7656-532c-4bc2-81d1-af945aeb8280" fqName="jetbrains.mps.baseLanguage.blTypes" version="0" />
     <language id="443f4c36-fcf5-4eb6-9500-8d06ed259e3e" fqName="jetbrains.mps.baseLanguage.classifiers" version="0" />
@@ -84,6 +89,7 @@
   </languageVersions>
   <runtime>
     <dependency reexport="false">fc261df3-08a8-4a98-b26c-fbdfc43d64e4(IL.runtime)</dependency>
+    <dependency reexport="false">dc038ceb-b7ea-4fea-ac12-55f7400e97ba(de.slisson.mps.editor.multiline.runtime)</dependency>
   </runtime>
   <extendedLanguages />
 </language>

@@ -100,7 +100,7 @@ public class Relation_Editor extends DefaultNodeEditor {
             if (SNodeOperations.isInstanceOf(businessConcept, MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f42182L, "IL.structure.BusinessConcept"))) {
               s.append(SPropertyOperations.getString(SLinkOperations.getTarget(bt, MetaAdapterFactory.getContainmentLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc649cL, 0x22fb8a86d9fc649dL, "preferredTermFor")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
               s.append(" (");
-              s.append(SPropertyOperations.getString(bt, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ") ,");
+              s.append(SPropertyOperations.getString(bt, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + "), ");
             }
           }
           SNode sy = (SNode) term;
@@ -109,7 +109,7 @@ public class Relation_Editor extends DefaultNodeEditor {
             if (SNodeOperations.isInstanceOf(businessConcept, MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f42182L, "IL.structure.BusinessConcept"))) {
               s.append(SPropertyOperations.getString(SLinkOperations.getTarget(sy, MetaAdapterFactory.getReferenceLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc64a1L, 0x22fb8a86d9fc64a2L, "isSynonymFor")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
               s.append(" (");
-              s.append(SPropertyOperations.getString(sy, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ") ,");
+              s.append(SPropertyOperations.getString(sy, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ")");
             }
           }
 

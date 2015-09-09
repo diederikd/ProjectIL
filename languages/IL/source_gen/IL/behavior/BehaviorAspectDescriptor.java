@@ -17,8 +17,6 @@ public class BehaviorAspectDescriptor implements jetbrains.mps.smodel.runtime.Be
         return new Characteristic_BehaviorDescriptor();
       case 3:
         return new Relation_BehaviorDescriptor();
-      case 4:
-        return new Specification_BehaviorDescriptor();
       case 2:
         return new PreferredTerm_BehaviorDescriptor();
       case 6:
@@ -27,6 +25,8 @@ public class BehaviorAspectDescriptor implements jetbrains.mps.smodel.runtime.Be
         return new Statement_BehaviorDescriptor();
       case 7:
         return new Word_BehaviorDescriptor();
+      case 4:
+        return new Specification_BehaviorDescriptor();
       default:
         return BehaviorAspectInterpreted.getInstance().getDescriptor(fqName);
     }

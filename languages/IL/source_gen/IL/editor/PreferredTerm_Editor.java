@@ -70,7 +70,7 @@ public class PreferredTerm_Editor extends DefaultNodeEditor {
     if (alternationCondition) {
       editorCell = this.createProperty_y4sz4f_a0a(editorContext, node);
     } else {
-      editorCell = this.createProperty_y4sz4f_a0a_0(editorContext, node);
+      editorCell = this.createAlternation_y4sz4f_a0a(editorContext, node);
     }
     return editorCell;
   }
@@ -96,7 +96,21 @@ public class PreferredTerm_Editor extends DefaultNodeEditor {
     } else
     return editorCell;
   }
-  private EditorCell createProperty_y4sz4f_a0a_0(EditorContext editorContext, SNode node) {
+  private EditorCell createAlternation_y4sz4f_a0a(EditorContext editorContext, SNode node) {
+    boolean alternationCondition = true;
+    alternationCondition = PreferredTerm_Editor.renderingCondition_y4sz4f_a0a0(node, editorContext);
+    EditorCell editorCell = null;
+    if (alternationCondition) {
+      editorCell = this.createProperty_y4sz4f_a0a0(editorContext, node);
+    } else {
+      editorCell = this.createProperty_y4sz4f_a0a0_0(editorContext, node);
+    }
+    return editorCell;
+  }
+  private static boolean renderingCondition_y4sz4f_a0a0(SNode node, EditorContext editorContext) {
+    return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(node, MetaAdapterFactory.getContainmentLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc649cL, 0x22fb8a86d9fc649dL, "preferredTermFor")))), MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f4d13eL, "IL.structure.Characteristic"));
+  }
+  private EditorCell createProperty_y4sz4f_a0a0(EditorContext editorContext, SNode node) {
     CellProviderWithRole provider = new PropertyCellProvider(node, editorContext);
     provider.setRole("name");
     provider.setNoTargetText("<no name>");
@@ -105,6 +119,25 @@ public class PreferredTerm_Editor extends DefaultNodeEditor {
     editorCell.setCellId("property_name_2");
     Style style = new StyleImpl();
     CoreLanguageStyles_StyleSheet.apply_Variabele(style, editorCell);
+    editorCell.getStyle().putAll(style);
+    editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
+    SNode attributeConcept = provider.getRoleAttribute();
+    Class attributeKind = provider.getRoleAttributeClass();
+    if (attributeConcept != null) {
+      EditorManager manager = EditorManager.getInstanceFromContext(editorContext);
+      return manager.createNodeRoleAttributeCell(editorContext, attributeConcept, attributeKind, editorCell);
+    } else
+    return editorCell;
+  }
+  private EditorCell createProperty_y4sz4f_a0a0_0(EditorContext editorContext, SNode node) {
+    CellProviderWithRole provider = new PropertyCellProvider(node, editorContext);
+    provider.setRole("name");
+    provider.setNoTargetText("<no name>");
+    EditorCell editorCell;
+    editorCell = provider.createEditorCell(editorContext);
+    editorCell.setCellId("property_name_3");
+    Style style = new StyleImpl();
+    CoreLanguageStyles_StyleSheet.apply_Normal(style, editorCell);
     editorCell.getStyle().putAll(style);
     editorCell.setSubstituteInfo(provider.createDefaultSubstituteInfo());
     SNode attributeConcept = provider.getRoleAttribute();

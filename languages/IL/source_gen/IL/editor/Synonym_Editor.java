@@ -6,7 +6,7 @@ import jetbrains.mps.nodeEditor.DefaultNodeEditor;
 import jetbrains.mps.openapi.editor.cells.EditorCell;
 import jetbrains.mps.openapi.editor.EditorContext;
 import org.jetbrains.mps.openapi.model.SNode;
-import jetbrains.mps.editor.runtime.cells.BigCellUtil;
+import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SConceptOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SNodeOperations;
 import jetbrains.mps.lang.smodel.generator.smodelAdapter.SLinkOperations;
@@ -16,35 +16,37 @@ import jetbrains.mps.lang.editor.cellProviders.PropertyCellProvider;
 import jetbrains.mps.openapi.editor.style.Style;
 import jetbrains.mps.editor.runtime.style.StyleImpl;
 import jetbrains.mps.nodeEditor.EditorManager;
-import jetbrains.mps.nodeEditor.cells.EditorCell_Collection;
 import jetbrains.mps.editor.runtime.style.StyleAttributes;
 
 public class Synonym_Editor extends DefaultNodeEditor {
   public EditorCell createEditorCell(EditorContext editorContext, SNode node) {
-    return this.createAlternation_7rmomw_a(editorContext, node);
-  }
-  public EditorCell createInspectedCell(EditorContext editorContext, SNode node) {
     return this.createCollection_7rmomw_a(editorContext, node);
   }
-  private EditorCell createAlternation_7rmomw_a(EditorContext editorContext, SNode node) {
+  public EditorCell createInspectedCell(EditorContext editorContext, SNode node) {
+    return this.createCollection_7rmomw_a_0(editorContext, node);
+  }
+  private EditorCell createCollection_7rmomw_a(EditorContext editorContext, SNode node) {
+    EditorCell_Collection editorCell = EditorCell_Collection.createIndent2(editorContext, node);
+    editorCell.setCellId("Collection_7rmomw_a");
+    editorCell.setBig(true);
+    editorCell.addEditorCell(this.createAlternation_7rmomw_a0(editorContext, node));
+    return editorCell;
+  }
+  private EditorCell createAlternation_7rmomw_a0(EditorContext editorContext, SNode node) {
     boolean alternationCondition = true;
-    alternationCondition = Synonym_Editor.renderingCondition_7rmomw_a0(node, editorContext);
+    alternationCondition = Synonym_Editor.renderingCondition_7rmomw_a0a(node, editorContext);
     EditorCell editorCell = null;
     if (alternationCondition) {
-      editorCell = this.createProperty_7rmomw_a0(editorContext, node);
+      editorCell = this.createProperty_7rmomw_a0a(editorContext, node);
     } else {
-      editorCell = this.createAlternation_7rmomw_a0(editorContext, node);
-    }
-    EditorCell bigCell = BigCellUtil.findBigCell(editorCell, node);
-    if (bigCell != null) {
-      bigCell.setBig(true);
+      editorCell = this.createAlternation_7rmomw_a0a(editorContext, node);
     }
     return editorCell;
   }
-  private static boolean renderingCondition_7rmomw_a0(SNode node, EditorContext editorContext) {
+  private static boolean renderingCondition_7rmomw_a0a(SNode node, EditorContext editorContext) {
     return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc64a1L, 0x22fb8a86d9fc64a2L, "isSynonymFor")))), MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f42182L, "IL.structure.BusinessConcept"));
   }
-  private EditorCell createProperty_7rmomw_a0(EditorContext editorContext, SNode node) {
+  private EditorCell createProperty_7rmomw_a0a(EditorContext editorContext, SNode node) {
     CellProviderWithRole provider = new PropertyCellProvider(node, editorContext);
     provider.setRole("name");
     provider.setNoTargetText("<no name>");
@@ -63,21 +65,21 @@ public class Synonym_Editor extends DefaultNodeEditor {
     } else
     return editorCell;
   }
-  private EditorCell createAlternation_7rmomw_a0(EditorContext editorContext, SNode node) {
+  private EditorCell createAlternation_7rmomw_a0a(EditorContext editorContext, SNode node) {
     boolean alternationCondition = true;
-    alternationCondition = Synonym_Editor.renderingCondition_7rmomw_a0a(node, editorContext);
+    alternationCondition = Synonym_Editor.renderingCondition_7rmomw_a0a0(node, editorContext);
     EditorCell editorCell = null;
     if (alternationCondition) {
-      editorCell = this.createProperty_7rmomw_a0a(editorContext, node);
+      editorCell = this.createProperty_7rmomw_a0a0(editorContext, node);
     } else {
-      editorCell = this.createProperty_7rmomw_a0a_0(editorContext, node);
+      editorCell = this.createProperty_7rmomw_a0a0_0(editorContext, node);
     }
     return editorCell;
   }
-  private static boolean renderingCondition_7rmomw_a0a(SNode node, EditorContext editorContext) {
+  private static boolean renderingCondition_7rmomw_a0a0(SNode node, EditorContext editorContext) {
     return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc64a1L, 0x22fb8a86d9fc64a2L, "isSynonymFor")))), MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f4d142L, "IL.structure.Relation"));
   }
-  private EditorCell createProperty_7rmomw_a0a(EditorContext editorContext, SNode node) {
+  private EditorCell createProperty_7rmomw_a0a0(EditorContext editorContext, SNode node) {
     CellProviderWithRole provider = new PropertyCellProvider(node, editorContext);
     provider.setRole("name");
     provider.setNoTargetText("<no name>");
@@ -96,7 +98,7 @@ public class Synonym_Editor extends DefaultNodeEditor {
     } else
     return editorCell;
   }
-  private EditorCell createProperty_7rmomw_a0a_0(EditorContext editorContext, SNode node) {
+  private EditorCell createProperty_7rmomw_a0a0_0(EditorContext editorContext, SNode node) {
     CellProviderWithRole provider = new PropertyCellProvider(node, editorContext);
     provider.setRole("name");
     provider.setNoTargetText("<no name>");
@@ -115,9 +117,9 @@ public class Synonym_Editor extends DefaultNodeEditor {
     } else
     return editorCell;
   }
-  private EditorCell createCollection_7rmomw_a(EditorContext editorContext, SNode node) {
+  private EditorCell createCollection_7rmomw_a_0(EditorContext editorContext, SNode node) {
     EditorCell_Collection editorCell = EditorCell_Collection.createIndent2(editorContext, node);
-    editorCell.setCellId("Collection_7rmomw_a");
+    editorCell.setCellId("Collection_7rmomw_a_0");
     editorCell.setBig(true);
     Style style = new StyleImpl();
     style.set(StyleAttributes.INDENT_LAYOUT_CHILDREN_NEWLINE, 0, true);
@@ -132,7 +134,7 @@ public class Synonym_Editor extends DefaultNodeEditor {
     if (alternationCondition) {
       editorCell = this.createComponent_7rmomw_a0a(editorContext, node);
     } else {
-      editorCell = this.createAlternation_7rmomw_a0a(editorContext, node);
+      editorCell = this.createAlternation_7rmomw_a0a_0(editorContext, node);
     }
     return editorCell;
   }
@@ -143,9 +145,9 @@ public class Synonym_Editor extends DefaultNodeEditor {
     EditorCell editorCell = editorContext.getCellFactory().createEditorComponentCell(node, "IL.editor.InspectorBusinessConcept");
     return editorCell;
   }
-  private EditorCell createAlternation_7rmomw_a0a(EditorContext editorContext, SNode node) {
+  private EditorCell createAlternation_7rmomw_a0a_0(EditorContext editorContext, SNode node) {
     boolean alternationCondition = true;
-    alternationCondition = Synonym_Editor.renderingCondition_7rmomw_a0a0(node, editorContext);
+    alternationCondition = Synonym_Editor.renderingCondition_7rmomw_a0a0_0(node, editorContext);
     EditorCell editorCell = null;
     if (alternationCondition) {
       editorCell = this.createComponent_7rmomw_a0a0(editorContext, node);
@@ -154,7 +156,7 @@ public class Synonym_Editor extends DefaultNodeEditor {
     }
     return editorCell;
   }
-  private static boolean renderingCondition_7rmomw_a0a0(SNode node, EditorContext editorContext) {
+  private static boolean renderingCondition_7rmomw_a0a0_0(SNode node, EditorContext editorContext) {
     return SConceptOperations.isSubConceptOf(SNodeOperations.asSConcept(SNodeOperations.getConcept(SLinkOperations.getTarget(node, MetaAdapterFactory.getReferenceLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc64a1L, 0x22fb8a86d9fc64a2L, "isSynonymFor")))), MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f4d142L, "IL.structure.Relation"));
   }
   private EditorCell createComponent_7rmomw_a0a0(EditorContext editorContext, SNode node) {

@@ -30,10 +30,10 @@ import jetbrains.mps.openapi.editor.cells.CellActionType;
 import jetbrains.mps.editor.runtime.cells.EmptyCellAction;
 import com.mbeddr.mpsutil.editor.querylist.runtime.QueryListHandler;
 import com.mbeddr.mpsutil.editor.querylist.runtime.EditorCell_QueryList;
-import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Horizontal;
+import jetbrains.mps.nodeEditor.cellLayout.CellLayout_Vertical;
 import jetbrains.mps.nodeEditor.cellProviders.AbstractCellListHandler;
 import jetbrains.mps.nodeEditor.cellActions.CellAction_DeleteNode;
-import IL.behavior.BusinessTerm_Behavior;
+import IL.behavior.Synonym_Behavior;
 import jetbrains.mps.internal.collections.runtime.Sequence;
 import jetbrains.mps.openapi.editor.cells.SubstituteInfo;
 import com.mbeddr.mpsutil.editor.querylist.runtime.SubstituteInfoFactory;
@@ -154,7 +154,7 @@ public class InspectorRelation implements ConceptEditorComponent {
             if (SNodeOperations.isInstanceOf(businessConcept, MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f42182L, "IL.structure.BusinessConcept"))) {
               s.append(SPropertyOperations.getString(SLinkOperations.getTarget(bt, MetaAdapterFactory.getContainmentLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc649cL, 0x22fb8a86d9fc649dL, "preferredTermFor")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
               s.append(" (");
-              s.append(SPropertyOperations.getString(bt, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ")" + ", \n");
+              s.append(SPropertyOperations.getString(bt, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ")" + ",");
             }
           }
           SNode sy = (SNode) term;
@@ -163,7 +163,7 @@ public class InspectorRelation implements ConceptEditorComponent {
             if (SNodeOperations.isInstanceOf(businessConcept, MetaAdapterFactory.getConcept(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9f42182L, "IL.structure.BusinessConcept"))) {
               s.append(SPropertyOperations.getString(SLinkOperations.getTarget(sy, MetaAdapterFactory.getReferenceLink(0x31cb0177ae9c4868L, 0xafb61ac48c69379dL, 0x22fb8a86d9fc64a1L, 0x22fb8a86d9fc64a2L, "isSynonymFor")), MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")));
               s.append(" (");
-              s.append(SPropertyOperations.getString(sy, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ")" + "\n");
+              s.append(SPropertyOperations.getString(sy, MetaAdapterFactory.getProperty(0xceab519525ea4f22L, 0x9b92103b95ca8c0cL, 0x110396eaaa4L, 0x110396ec041L, "name")) + ")");
             }
           }
 
@@ -189,7 +189,7 @@ public class InspectorRelation implements ConceptEditorComponent {
   private EditorCell createQueryList_h6li49_g0(final EditorContext editorContext, final SNode node) {
     QueryListHandler handler = new InspectorRelation.QueryListHandler_h6li49_g0(editorContext, node);
 
-    EditorCell_QueryList editorCell = handler.createCells(editorContext, new CellLayout_Horizontal());
+    EditorCell_QueryList editorCell = handler.createCells(editorContext, new CellLayout_Vertical());
     editorCell.setCellId("QueryList_h6li49_g0");
     Style style = new StyleImpl();
     style.set(StyleAttributes.READ_ONLY, 0, true);
@@ -227,7 +227,7 @@ public class InspectorRelation implements ConceptEditorComponent {
       }
     }
     private Object executeQuery(final SNode node, final EditorContext editorContext) {
-      return BusinessTerm_Behavior.call_GetRelatedObjects_7014007324882108649(node);
+      return Synonym_Behavior.call_GetRelatedTermsForConcept_1451905373590893846(node);
     }
     @Override
     public Iterable<? extends SNode> getNodesForList(final SNode node) {
