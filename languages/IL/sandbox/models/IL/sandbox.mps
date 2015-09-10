@@ -71,7 +71,7 @@
       <node concept="3V1YSq" id="2bVyCrq2upJ" role="3V1_7A">
         <property role="TrG5h" value="is gehuwd met" />
         <node concept="3V3PJ4" id="2bVyCrq2upZ" role="3V1YSr">
-          <property role="TrG5h" value="Gehuwd" />
+          <property role="TrG5h" value="is Gehuwd" />
         </node>
       </node>
       <node concept="3Ne0q" id="4ljqtT6E4Dd" role="3V1_7A">
@@ -92,7 +92,7 @@
       </node>
       <node concept="3V1YSB" id="2bVyCrq2usw" role="3V1_7A">
         <property role="TrG5h" value="is getrouwd met" />
-        <ref role="3V1YS$" node="2bVyCrq2upZ" resolve="Gehuwd" />
+        <ref role="3V1YS$" node="2bVyCrq2upZ" resolve="is Gehuwd" />
       </node>
       <node concept="3V1YSB" id="2bVyCrq2uq_" role="3V1_7A">
         <property role="TrG5h" value="persoon" />
@@ -262,6 +262,46 @@
         </node>
       </node>
     </node>
+    <node concept="3V1_7r" id="1gAd3UC$g0A" role="3V3Pd7">
+      <node concept="3Ne0q" id="1gAd3UC$g1W" role="3V1_7A">
+        <property role="TrG5h" value="De" />
+      </node>
+      <node concept="3V1YSB" id="1gAd3UC$g21" role="3V1_7A">
+        <property role="TrG5h" value="werknemer" />
+        <ref role="3V1YS$" node="2bVyCrq2upw" resolve="Persoon" />
+      </node>
+      <node concept="3V1YSq" id="1gAd3UC$g29" role="3V1_7A">
+        <property role="TrG5h" value="heeft" />
+        <node concept="3V3PJ4" id="1gAd3UC$g2Q" role="3V1YSr">
+          <property role="TrG5h" value="heeftVerzocht" />
+        </node>
+      </node>
+      <node concept="3Ne0q" id="1gAd3UC$g2C" role="3V1_7A">
+        <property role="TrG5h" value="de" />
+      </node>
+      <node concept="3V1YSB" id="1gAd3UC$g2T" role="3V1_7A">
+        <property role="TrG5h" value="werkgever" />
+        <ref role="3V1YS$" node="2bVyCrq2upw" resolve="Persoon" />
+      </node>
+      <node concept="3V1YSB" id="1gAd3UC$g39" role="3V1_7A">
+        <property role="TrG5h" value="verzocht" />
+        <ref role="3V1YS$" node="1gAd3UC$g2Q" resolve="heeftVerzocht" />
+      </node>
+      <node concept="3Ne0q" id="1gAd3UC$g3r" role="3V1_7A">
+        <property role="TrG5h" value="om aanpassing van de uit zijn" />
+      </node>
+      <node concept="3V1YSB" id="1gAd3UC$g3J" role="3V1_7A">
+        <property role="TrG5h" value="arbeidsovereenkomst" />
+        <ref role="3V1YS$" node="1gAd3UCnazB" resolve="Arbeidsovereenkomst" />
+      </node>
+      <node concept="3Ne0q" id="1gAd3UC$g6X" role="3V1_7A">
+        <property role="TrG5h" value="op" />
+      </node>
+      <node concept="3V1YSB" id="1gAd3UC$g7l" role="3V1_7A">
+        <property role="TrG5h" value="verzoekdatum" />
+        <ref role="3V1YS$" node="1gAd3UCmZY6" resolve="Verzoekdatum" />
+      </node>
+    </node>
     <node concept="3V1_7r" id="1gAd3UCmteO" role="3V3Pd7">
       <node concept="3Ne0q" id="1gAd3UCtltl" role="3V1_7A">
         <property role="TrG5h" value="De" />
@@ -293,6 +333,55 @@
       <node concept="3V1YSB" id="1gAd3UCtlZ2" role="3V1_7A">
         <property role="TrG5h" value="Burger" />
         <ref role="3V1YS$" node="2bVyCrq2upw" resolve="Persoon" />
+      </node>
+      <node concept="3V1YSq" id="1gAd3UC$fVK" role="3V1_7A">
+        <property role="TrG5h" value="doet aangifte" />
+        <node concept="3V3PJ4" id="1gAd3UC$fVS" role="3V1YSr">
+          <property role="TrG5h" value="aangiftedoen" />
+        </node>
+      </node>
+      <node concept="3Ne0q" id="1gAd3UC$fW1" role="3V1_7A">
+        <property role="TrG5h" value="op" />
+      </node>
+      <node concept="3V1YSq" id="1gAd3UC$fWf" role="3V1_7A">
+        <property role="TrG5h" value="Aangiftedatum" />
+        <node concept="3V3PIS" id="1gAd3UC$fWq" role="3V1YSr">
+          <property role="TrG5h" value="Aangiftedatum" />
+          <ref role="3ZDha" node="1gAd3UC$fX8" resolve="Aangifte" />
+        </node>
+      </node>
+      <node concept="3Ne0q" id="1gAd3UC$fWA" role="3V1_7A">
+        <property role="TrG5h" value="met een" />
+      </node>
+      <node concept="3V1YSq" id="1gAd3UC$fWU" role="3V1_7A">
+        <property role="TrG5h" value="Aangifte" />
+        <node concept="3V3UG4" id="1gAd3UC$fX8" role="3V1YSr">
+          <property role="TrG5h" value="Aangifte" />
+        </node>
+      </node>
+    </node>
+    <node concept="3V1_7r" id="1gAd3UC$g7y" role="3V3Pd7">
+      <node concept="3V1YSB" id="1gAd3UC$g94" role="3V1_7A">
+        <property role="TrG5h" value="Persoon1" />
+        <ref role="3V1YS$" node="2bVyCrq2upw" resolve="Persoon" />
+      </node>
+      <node concept="3V1YSB" id="1gAd3UC$g99" role="3V1_7A">
+        <property role="TrG5h" value="is gehuwd " />
+        <ref role="3V1YS$" node="2bVyCrq2upZ" resolve="is Gehuwd" />
+      </node>
+      <node concept="3V1YSB" id="1gAd3UC$g9h" role="3V1_7A">
+        <property role="TrG5h" value="Persoon2" />
+        <ref role="3V1YS$" node="2bVyCrq2upw" resolve="Persoon" />
+      </node>
+      <node concept="3Ne0q" id="1gAd3UC$g9r" role="3V1_7A">
+        <property role="TrG5h" value="op" />
+      </node>
+      <node concept="3V1YSq" id="1gAd3UC$g9B" role="3V1_7A">
+        <property role="TrG5h" value="datum" />
+        <node concept="3V3PIS" id="1gAd3UC$g9L" role="3V1YSr">
+          <property role="TrG5h" value="huwlijksdatum" />
+          <ref role="3ZDha" node="2bVyCrq2upZ" resolve="is Gehuwd" />
+        </node>
       </node>
     </node>
   </node>

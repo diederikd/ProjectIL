@@ -61,7 +61,7 @@
     <node concept="1TJgyj" id="4ljqtT6FvQk" role="1TKVEi">
       <property role="20lmBu" value="reference" />
       <property role="20kJfa" value="representsAspectOf" />
-      <ref role="20lvS9" node="2bVyCrpX262" resolve="BusinessConcept" />
+      <ref role="20lvS9" node="2bVyCrpXdBw" resolve="Concept" />
     </node>
   </node>
   <node concept="1TIwiD" id="2bVyCrpXd52">
